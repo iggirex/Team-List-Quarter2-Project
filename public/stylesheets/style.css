@@ -1,9 +1,14 @@
 body {
-  padding-top: 120px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 #mainbox {
     border-style: solid;
     border-color: #b94a48;
     border-width: 1px;
+}
+
+.jam_header {
+  padding-left: 10px;
 }
