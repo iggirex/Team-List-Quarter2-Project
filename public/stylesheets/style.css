@@ -1,3 +1,9 @@
 body {
-  padding-top: 80px;
+  padding-top: 120px;
+}
+
+#mainbox {
+    border-style: solid;
+    border-color: #b94a48;
+    border-width: 1px;
 }
