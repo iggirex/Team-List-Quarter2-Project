@@ -1,21 +1,17 @@
 // Update with your config settings.
-
+var dotenv = require('dotenv').config()
 module.exports = {
 
   development: {
-    client: 'postgres',
+    client: 'pg',
     connection: {
-      database: 'database-name-here'
+      database: 'ff'
     }
   },
 
   production: {
     client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10
