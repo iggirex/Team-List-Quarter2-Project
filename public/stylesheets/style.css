@@ -13,3 +13,7 @@ body {
 .jam_header {
   padding-left: 10px;
 }
+
+#chat-box {
+  margin-left: 15px;
+}
