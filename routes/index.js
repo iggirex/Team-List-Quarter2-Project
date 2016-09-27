@@ -10,8 +10,12 @@ router.get('/', function(req, res, next) {
   res.render('pages/index', { title: 'Express' });
 });
 
-module.exports = router;
-
 router.get('/chat', function(req, res, next) {
   res.render('pages/chat')
 })
+
+router.get('/register', function(req, res, next) {
+  res.render('pages/register')
+})
+
+module.exports = router;
