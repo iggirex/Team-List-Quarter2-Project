@@ -18,4 +18,8 @@ router.get('/register', function(req, res, next) {
   res.render('register')
 })
 
+router.get('/edit', function(req, res, next) {
+  res.render('editprofile')
+})
+
 module.exports = router;
