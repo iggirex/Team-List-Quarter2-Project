@@ -11,3 +11,7 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+router.get('/chat', function(req, res, next) {
+  res.render('pages/chat')
+})
