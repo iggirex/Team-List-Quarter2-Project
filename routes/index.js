@@ -7,15 +7,19 @@ var passport = require('../passport')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('pages/index', { title: 'Express' });
+  res.render('index', { title: 'Express' });
 });
 
 router.get('/chat', function(req, res, next) {
-  res.render('pages/chat')
+  res.render('chat')
 })
 
 router.get('/register', function(req, res, next) {
-  res.render('pages/register')
+  res.render('register')
+})
+
+router.get('/edit', function(req, res, next) {
+  res.render('editprofile')
 })
 
 module.exports = router;
