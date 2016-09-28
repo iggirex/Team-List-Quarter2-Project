@@ -26,9 +26,18 @@ router.get('/profile', auth.ensureAuthenticated,  function(req, res, next) {
   res.render('profile', {user: req.user})
 })
 
-router.get('/register', function(req, res, next) {
+router.get('/register', auth.ensureAuthenticated, function(req, res, next) {
   res.render('register')
 });
+
+router.post('/register',   function(req, res, next) {
+  console.log('hi')
+  console.log("this is id: ", req.body)
+  query.insertAdditionalInfo(req.body)
+  .then(() =>{
+    res.redirect('/chat');
+  })
+})
 
 router.get('/edit', function(req, res, next) {
   res.render('editProfile')
@@ -54,7 +63,7 @@ router.get('/auth/google', auth.passport.authenticate('google', {
 
 router.get('/auth/google/callback',
     auth.passport.authenticate('google', {
-        successRedirect: '/profile',
+        successRedirect: '/register',
         failureRedirect: '/login'
       }
     )

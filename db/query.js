@@ -11,13 +11,13 @@ module.exports = {
   getAllUsersByIdAndGoogleProfileId : function(profile){
     return Users().where('id', profile.id)
   },
-  registerNewUser: function(id, user_name, genre, musical_instrument, influence, bio) {
-    return Users().where('id', id).update({
-      user_name: user_name,
-      genre: genre,
-      musical_instrument: musical_instrument,
-      influence: influence,
-      bio: bio
+  insertAdditionalInfo: function(body) {
+    return Users().where({ id: body.user.id}).update({
+      user_name: body.username,
+      genre: body.genre,
+      musical_instrument: body.instruments,
+      influence: body.influences,
+      bio: body.bio
     })
   }
 }
