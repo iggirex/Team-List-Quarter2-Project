@@ -40,3 +40,10 @@ body {
   padding: 10px 220px;
   /*margin-top: 8px;*/
 }
+
+.btn-primary a {
+  color: white;
+}
+.btn-primary a:hover {
+  color: white;
+}
