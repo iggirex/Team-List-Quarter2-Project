@@ -15,12 +15,16 @@ router.get('/chat', function(req, res, next) {
   res.render('chat')
 })
 
+router.get('/profile', function(req, res, next) {
+  res.render('profile')
+})
+
 router.get('/register', function(req, res, next) {
   res.render('register')
 });
 
 router.get('/edit', function(req, res, next) {
-  res.render('edit')
+  res.render('editProfile')
 })
 
 router.get('/profile', auth.ensureAuthenticated, function(req, res) {
