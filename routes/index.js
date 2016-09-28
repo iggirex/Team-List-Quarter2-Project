@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var auth = require('../passport.js')
 var db = require('../db/query.js')
+var dotenv = require('dotenv').config()
+var twilio = require('twilio');
+var client = new twilio.RestClient(process.env.accountSid, process.env.authToken);
 
 //var query = require('../db/query')
 //var passport = require('../passport')
@@ -52,5 +55,15 @@ router.get('/auth/google/callback',
       }
     )
 );
+
+router.get('/twilio', function(){
+  client.messages.create({
+    body: 'YO WAZZUP',
+    to: '+15206645798',  // Text this number
+    from: '+15052070206' // From a valid Twilio number
+  }, function(err, message) {
+    console.log(err);
+  });
+})
 
 module.exports = router;
