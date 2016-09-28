@@ -1,26 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-offset-4 col-lg-4 well">
-      <form action="/register">
+      <form action="/register" method="POST">
         <div class="form-group">
-          <label for="username"> Username</label>
-          <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+          <label for="user_name"> Username</label>
+          <input type="text" name="user_name" class="form-control" id="user_name" placeholder="Username">
         </div>
         <div class="form-group">
           <label for="genre">Genre</label>
           <input type="text" name="genre" class="form-control" id="genre" placeholder="Genre (Optional)">
         </div>
         <div class="form-group">
-          <label for="instruments">Musical Instruments</label>
-          <input type="text" name="instruments" class="form-control" id="instruments" placeholder="Instrument (Optional)">
+          <label for="instrument">Musical Instruments</label>
+          <input type="text" name="instrument" class="form-control" id="instrument" placeholder="Instrument (Optional)">
         </div>
         <div class="form-group">
-          <label for="influences">Influences</label>
-          <input type="text" name="influences" class="form-control" id="influences" placeholder="Influences (Optional)">
+          <label for="influence">Influences</label>
+          <input type="text" name="influence" class="form-control" id="influence" placeholder="Influences (Optional)">
         </div>
         <div class="form-group">
           <label for="bio">Biography</label>
-          <textarea rows="5" cols="40"type="text" name="bio" class="form-control" id="biography" placeholder="Biography (Optional)"></textarea>
+          <textarea rows="5" cols="40"type="text" name="bio" class="form-control" id="bio" placeholder="Biography (Optional)"></textarea>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
