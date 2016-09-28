@@ -1,6 +1,5 @@
 var queries = require('./db/query');
 var passport = require('passport')
-// var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var knex = require('./db/knex')
 var dotenv = require('dotenv').config()

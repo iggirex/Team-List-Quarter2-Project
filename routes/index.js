@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var auth = require('../passport.js')
-var db = require('../db/query.js')
+var query = require('../db/query.js')
 var dotenv = require('dotenv').config()
 var twilio = require('twilio');
 var client = new twilio.RestClient(process.env.accountSid, process.env.authToken);
@@ -18,8 +18,12 @@ router.get('/chat', function(req, res, next) {
   res.render('chat')
 })
 
-router.get('/profile', function(req, res, next) {
-  res.render('profile')
+router.get('/profile', auth.ensureAuthenticated,  function(req, res, next) {
+  // query.getAllUsers()
+  // .then(function(users) {
+  //   res.render('profile', {users: users})
+  // })
+  res.render('profile', {user: req.user})
 })
 
 router.get('/register', function(req, res, next) {
