@@ -23,6 +23,7 @@ router.get('/profile', auth.ensureAuthenticated,  function(req, res, next) {
   // .then(function(users) {
   //   res.render('profile', {users: users})
   // })
+  console.log(req.user)
   res.render('profile', {user: req.user})
 })
 
@@ -31,9 +32,7 @@ router.get('/register', auth.ensureAuthenticated, function(req, res, next) {
 });
 
 router.post('/register',   function(req, res, next) {
-  console.log('hi')
-  console.log("this is id: ", req.body)
-  query.insertAdditionalInfo(req.body)
+  query.insertAdditionalInfo(req.user[0], req.body.user_name, req.body.genre, req.body.instrument, req.body.influence, req.body.bio)
   .then(() =>{
     res.redirect('/chat');
   })
