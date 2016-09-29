@@ -22,6 +22,10 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+      <form action="/delete" method="POST">
+        <input type="hidden" name="id" value="{{user.id}}" />
+        <input type="submit" class="btn btn-default btn-sm" value="Delete Profile" />
+      </form>
     </div>
   </div>
 </div>
