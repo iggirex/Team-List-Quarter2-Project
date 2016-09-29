@@ -11,8 +11,8 @@ module.exports = {
   getAllUsersByIdAndGoogleProfileId : function(profile){
     return Users().where('id', profile.id)
   },
-  insertAdditionalInfo: function(user, user_name, genre, instrument, influence, bio, admin) {
-    return Users().where('id',user.id).update({
+  insertAdditionalInfo: function(id, user_name, genre, instrument, influence, bio, admin) {
+    return Users().where('id', id).update({
       user_name: user_name,
       genre: genre,
       musical_instrument: instrument,
@@ -20,5 +20,9 @@ module.exports = {
       bio: bio,
       admin: false
     })
+  },
+  doesIDExist: function(user, user2) {
+    return Users().where('id', user).orWhere('id', user2).select('user_name')
   }
+
 }
