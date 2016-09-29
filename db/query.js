@@ -32,5 +32,9 @@ module.exports = {
   deleteProfileById: function(user) {
     return Users().where('id', user.id).first().del()
   },
-
+  addAdmin: function(id) {
+    return Users().where('id', id).update({
+      admin: true
+    })
+  }
 }

@@ -64,7 +64,7 @@ router.post('/delete', auth.ensureAuthenticated, function(req, res, next) {
   })
 })
 
-//Admin page
+//Get Admin Page
 router.get('/admin', auth.ensureAuthenticated, function(req, res, next) {
   query.getAllUsersByIdAndGoogleProfileId(req.user)
   .then((userdata)=>{
@@ -76,6 +76,15 @@ router.get('/admin', auth.ensureAuthenticated, function(req, res, next) {
     } else{
       res.redirect('/chat')
     }
+  })
+})
+
+//Add an Admin
+router.post('/addAdmin/:id', auth.ensureAuthenticated, function(req, res, next) {
+    console.log(req.params.id);
+  query.addAdmin(req.params.id)
+  .then(() =>{
+    res.redirect('/admin')
   })
 })
 
