@@ -43,13 +43,25 @@ router.post('/register',   function(req, res, next) {
 
 //Edit Existing Profile
 router.get('/edit', auth.ensureAuthenticated, function(req, res, next) {
-  res.render('editProfile', {user:req.user})
+  query.getAllUsersByIdAndGoogleProfileId(req.user)
+  .then ((userdata) => {
+    res.render('editProfile', {user: userdata})
+  })
+  // res.render('editProfile', {user:req.user})
 })
 
 router.post('/edit', function(req, res, next) {
   query.editProfileById(req.user, req.body.user_name, req.body.genre, req.body.instrument, req.body.influence, req.body.bio)
   .then(()=>{
     res.redirect('/chat')
+  })
+})
+
+//Delete Profile
+router.post('/delete', auth.ensureAuthenticated, function(req, res, next) {
+  query.deleteProfileById(req.user)
+  .then(() =>{
+    res.redirect('/')
   })
 })
 
