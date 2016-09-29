@@ -14,18 +14,16 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+//Get Video/Chat Page
 router.get('/chat', auth.ensureAuthenticated,  function(req, res, next) {
-  res.render('chat', {user: req.user})
+  query.getAllUsersByIdAndGoogleProfileId(req.user)
+  .then ((userdata) => {
+    res.render('chat', {user: userdata})
+  })
 })
 
-// router.get('/profile', auth.ensureAuthenticated,  function(req, res, next) {
-//   console.log(req.user)
-//   res.render('profile', {user: req.user})
-// })
-
+//Register New Users
 router.get('/register', auth.ensureAuthenticated, function(req, res, next) {
-  console.log("this is our req.user", req.user)
-  console.log('this is our req.user.id', req.user.id)
   query.getAllUsersByIdAndGoogleProfileId(req.user)
   .then((userId)=>{
     if(!userId.user_name){
@@ -34,7 +32,6 @@ router.get('/register', auth.ensureAuthenticated, function(req, res, next) {
       res.redirect('/chat')
     }
   })
-  // res.render('register')
 });
 
 router.post('/register',   function(req, res, next) {
@@ -44,8 +41,8 @@ router.post('/register',   function(req, res, next) {
   })
 })
 
+//Edit Existing Profile
 router.get('/edit', auth.ensureAuthenticated, function(req, res, next) {
-  //console.log(req.user)
   res.render('editProfile', {user:req.user})
 })
 
@@ -56,13 +53,7 @@ router.post('/edit', function(req, res, next) {
   })
 })
 
-
-router.get('/login', function(req, res) {
-    res.render('login', {
-        user: req.user
-    });
-});
-
+//Google OAuth
 router.get('/auth/google', auth.passport.authenticate('google', {
     scope: [
         'profile', 'email',
