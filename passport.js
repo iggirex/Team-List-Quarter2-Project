@@ -22,20 +22,20 @@ passport.use(new GoogleStrategy({
     function(request, accessToken, refreshToken, profile, done) {
       queries.getAllUsersByIdAndGoogleProfileId(profile)
             .then(function(user) {
-                if (user.length > 0) {
+                if (user) {
                     console.log('It worked and didnt add a new user')
                     return done(null, user)
                 } else {
-                    console.log("it added a new user", user.length)
+                    console.log("it added a new user")
                     queries.getAllUsers().insert({
                             id: profile.id,
                             token: accessToken,
                             name: profile.displayName,
                             email: profile.emails[0].value,
                             photo: profile.photos[0].value
-                        })
-                        .then((noflexzone) => {
-                            return done (null, profile)
+                        }, "*")
+                        .then((users) => {
+                            return done (null, users[0])
                         })
                     //console.log(profile)
                 }

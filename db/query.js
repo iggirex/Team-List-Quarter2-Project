@@ -9,7 +9,7 @@ module.exports = {
     return Users();
   },
   getAllUsersByIdAndGoogleProfileId : function(profile){
-    return Users().where('id', profile.id)
+    return Users().where('id', profile.id).first()
   },
   insertAdditionalInfo: function(user, user_name, genre, instrument, influence, bio, admin) {
     return Users().where('id',user.id).update({
