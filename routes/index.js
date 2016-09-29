@@ -82,7 +82,7 @@ router.get('/auth/google/callback',
     )
 );
 
-router.get('/twilio', function(){
+router.post('/twilio', function(){
   client.messages.create({
     body: 'YO WAZZUP',
     to: '+15206645798',  // Text this number
