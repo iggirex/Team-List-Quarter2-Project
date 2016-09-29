@@ -47,7 +47,6 @@ router.get('/edit', auth.ensureAuthenticated, function(req, res, next) {
   .then ((userdata) => {
     res.render('editProfile', {user: userdata})
   })
-  // res.render('editProfile', {user:req.user})
 })
 
 router.post('/edit', function(req, res, next) {
@@ -62,6 +61,18 @@ router.post('/delete', auth.ensureAuthenticated, function(req, res, next) {
   query.deleteProfileById(req.user)
   .then(() =>{
     res.redirect('/')
+  })
+})
+
+//Admin page
+router.get('/admin', auth.ensureAuthenticated, function(req, res, next) {
+  query.getAllUsersByIdAndGoogleProfileId(req.user)
+  .then((userdata)=>{
+    if(userdata.admin === true){
+      res.render('admin')
+    } else{
+      res.redirect('/chat')
+    }
   })
 })
 
