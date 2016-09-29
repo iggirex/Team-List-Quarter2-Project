@@ -7,6 +7,11 @@
 var app = require('../app');
 var debug = require('debug')('Team-List-Quarter2-Project:server');
 var http = require('http');
+var server = require('http').Server(app);
+var io = require('../server.js')
+
+io.attach(server)
+
 
 /**
  * Get port from environment and store in Express.
@@ -20,7 +25,8 @@ console.log('listening on port: ', port)
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+// replacing this server below with io server
+// var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
