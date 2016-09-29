@@ -1,6 +1,6 @@
 
 <div class="container">
-  <h2>Hey {{user.user_name}}, whatchu wearing </h2>
+  <h2>Hey {{user.user_name}}</h2>
   <div class="row">
     <div class="col-lg-offset-4 col-lg-4 well">
       <form action="/edit" method="POST">
@@ -24,7 +24,7 @@
       </form>
       <form action="/delete" method="POST">
         <input type="hidden" name="id" value="{{user.id}}" />
-        <input type="submit" class="btn btn-default btn-sm" value="Delete Profile" />
+        <input type="submit" class="btn btn-default" value="Delete Profile" />
       </form>
     </div>
   </div>

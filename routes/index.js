@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 //Get Video/Chat Page
 router.get('/chat', auth.ensureAuthenticated,  function(req, res, next) {
   query.getAllUsersByIdAndGoogleProfileId(req.user)
-  .then ((userdata) => {
+  .then((userdata) => {
     res.render('chat', {user: userdata})
   })
 })
@@ -25,7 +25,7 @@ router.get('/chat', auth.ensureAuthenticated,  function(req, res, next) {
 //Register New Users
 router.get('/register', auth.ensureAuthenticated, function(req, res, next) {
   query.getAllUsersByIdAndGoogleProfileId(req.user)
-  .then((userId)=>{
+  .then((userId)=> {
     if(!userId.user_name){
       res.render('register')
     } else {
@@ -36,7 +36,7 @@ router.get('/register', auth.ensureAuthenticated, function(req, res, next) {
 
 router.post('/register',   function(req, res, next) {
   query.insertAdditionalInfo(req.user, req.body.user_name, req.body.genre, req.body.instrument, req.body.influence, req.body.bio)
-  .then(() =>{
+  .then(() => {
     res.redirect('/chat');
   })
 })
@@ -44,15 +44,14 @@ router.post('/register',   function(req, res, next) {
 //Edit Existing Profile
 router.get('/edit', auth.ensureAuthenticated, function(req, res, next) {
   query.getAllUsersByIdAndGoogleProfileId(req.user)
-  .then ((userdata) => {
+  .then((userdata) => {
     res.render('editProfile', {user: userdata})
   })
-  // res.render('editProfile', {user:req.user})
 })
 
 router.post('/edit', function(req, res, next) {
   query.editProfileById(req.user, req.body.user_name, req.body.genre, req.body.instrument, req.body.influence, req.body.bio)
-  .then(()=>{
+  .then(() => {
     res.redirect('/chat')
   })
 })
@@ -60,8 +59,39 @@ router.post('/edit', function(req, res, next) {
 //Delete Profile
 router.post('/delete', auth.ensureAuthenticated, function(req, res, next) {
   query.deleteProfileById(req.user)
-  .then(() =>{
+  .then(() => {
     res.redirect('/')
+  })
+})
+
+//Logout
+router.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/');
+})
+
+//ADMIN
+//Get Admin Page
+router.get('/admin', auth.ensureAuthenticated, function(req, res, next) {
+  query.getAllUsersByIdAndGoogleProfileId(req.user)
+  .then((userdata)=>{
+    if(userdata.admin === true){
+      query.getAllUsers()
+      .then((allusers) => {
+        res.render('admin', {users: allusers})
+      })
+    } else{
+      res.redirect('/chat')
+    }
+  })
+})
+
+//Add an Admin
+router.post('/addAdmin/:id', auth.ensureAuthenticated, function(req, res, next) {
+    console.log(req.params.id);
+  query.addAdmin(req.params.id)
+  .then(() => {
+    res.redirect('/admin')
   })
 })
 
@@ -77,19 +107,24 @@ router.get('/auth/google', auth.passport.authenticate('google', {
 router.get('/auth/google/callback',
     auth.passport.authenticate('google', {
         successRedirect: '/register',
-        failureRedirect: '/login'
+        failureRedirect: '/'
       }
     )
 );
 
-router.get('/twilio', function(){
+
+router.get('/twilio', function(req, res, next){
   client.messages.create({
-    body: 'YO WAZZUP',
+    body: req.query.message,
     to: '+15206645798',  // Text this number
     from: '+15052070206' // From a valid Twilio number
-  }, function(err, message) {
-    console.log(err);
-  });
+  }).then(()=>{
+    res.redirect('/feedback')
+  })
+})
+
+router.get('/feedback', function(req, res, next){
+  res.render('feedback')
 })
 
 module.exports = router;
