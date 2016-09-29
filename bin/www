@@ -12,7 +12,6 @@ var io = require('../server.js')
 
 io.attach(server)
 
-
 /**
  * Get port from environment and store in Express.
  */
