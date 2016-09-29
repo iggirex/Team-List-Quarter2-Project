@@ -4,12 +4,27 @@
       <table class="table">
         <thead>
           <tr>
+            <th>Full Name</th>
             <th>Username</th>
             <th>E-mail</th>
             <th>Admin</th>
-            <th>Banned</th>
+            <th>Add Admin</th>
           </tr>
         </thead>
+        {{#each users}}
+        <tbody>
+          <td>{{this.name}}</td>
+          <td>{{this.user_name}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.admin}}</td>
+          <td>
+            <form action="/addAdmin/{{this.id}}" method="POST">
+              <input type="hidden" name="id" value="{{this.id}}" />
+              <input type="submit" class="btn btn-default btn-sm" value="Add Admin" />
+            </form>
+          </td>
+        </tbody>
+        {{/each}}
       </table>
     </div>
   </div>
