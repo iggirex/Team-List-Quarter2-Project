@@ -28,24 +28,24 @@
             <h4 class="modal-title" id="myModalLabel">Send A Report</h4>
           </div>
           <div class="modal-body">
-            <form method="POST" action="/twilio">
+            <form method="GET" action="/twilio">
              <div class="form-group">
                <label for="contact" class="control-label">Contact:</label>
-               <input type="text" class="form-control" id="contact">
+               <input type="text" class="form-control" id="contact" name="contact">
              </div>
              <div class="form-group">
                <label for="subject" class="control-label">Subject:</label>
                <input type="text" class="form-control" id="subject">
              </div>
              <div class="form-group">
-               <label for="message-text" class="control-label">Message:</label>
-               <textarea class="form-control" id="message-text"></textarea>
+               <label for="message" class="control-label">Message:</label>
+               <textarea class="form-control" id="message" name="message"></textarea>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               <input type="submit" class="btn btn-primary" value='send report'/>
              </div>
            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send Report</button>
           </div>
         </div>
       </div>

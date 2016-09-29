@@ -60,6 +60,6 @@ module.exports = {
         return next();
     } else {
         console.log('ensure authenticated didnt work')
-        res.redirect('/login');
+        res.redirect('/');
     }
 }}

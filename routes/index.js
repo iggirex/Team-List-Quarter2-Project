@@ -77,19 +77,25 @@ router.get('/auth/google', auth.passport.authenticate('google', {
 router.get('/auth/google/callback',
     auth.passport.authenticate('google', {
         successRedirect: '/register',
-        failureRedirect: '/login'
+        failureRedirect: '/'
       }
     )
 );
 
-router.post('/twilio', function(){
+router.get('/twilio', function(req, res, next){
+  // console.log('we are inside twilio')
+  // console.log('this is req.query', req.query)
   client.messages.create({
-    body: 'YO WAZZUP',
+    body: req.query.message,
     to: '+15206645798',  // Text this number
     from: '+15052070206' // From a valid Twilio number
-  }, function(err, message) {
-    console.log(err);
-  });
+  }).then(()=>{
+    res.redirect('/feedback')
+  })
+})
+
+router.get('/feedback', function(req, res, next){
+  res.render('feedback')
 })
 
 module.exports = router;
