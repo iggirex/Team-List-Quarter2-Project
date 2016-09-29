@@ -18,6 +18,12 @@ body {
   margin-left: 15px;
 }
 
+#chatDiv {
+  background-color: grey;
+  height: 112px;
+  width: 600px;
+}
+
 #send-button {
   padding: 12px 29px 12px 29px;
   margin-left: 0px;
