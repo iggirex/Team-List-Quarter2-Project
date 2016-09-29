@@ -1,6 +1,5 @@
 var queries = require('./db/query');
 var passport = require('passport')
-// var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var knex = require('./db/knex')
 var dotenv = require('dotenv').config()
@@ -16,27 +15,27 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/auth/google/callback", //"https://oauthtakethree.herokuapp.com/auth/google/callback",
+        callbackURL: process.env.GOOGLE_CALLBACK_URL, //"https://oauthtakethree.herokuapp.com/auth/google/callback",
         // "http://localhost:3000/auth/google/callback" ||
         passReqToCallback: true
     },
     function(request, accessToken, refreshToken, profile, done) {
       queries.getAllUsersByIdAndGoogleProfileId(profile)
             .then(function(user) {
-                if (user.length > 0) {
+                if (user) {
                     console.log('It worked and didnt add a new user')
                     return done(null, user)
                 } else {
-                    console.log("it added a new user", user.length)
+                    console.log("it added a new user")
                     queries.getAllUsers().insert({
                             id: profile.id,
                             token: accessToken,
                             name: profile.displayName,
                             email: profile.emails[0].value,
                             photo: profile.photos[0].value
-                        })
-                        .then((noflexzone) => {
-                            return done (null, profile)
+                        }, "*")
+                        .then((users) => {
+                            return done (null, users[0])
                         })
                     //console.log(profile)
                 }
