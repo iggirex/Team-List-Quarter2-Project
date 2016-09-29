@@ -32,4 +32,5 @@ module.exports = {
   deleteProfileById: function(user) {
     return Users().where('id', user.id).first().del()
   },
+
 }

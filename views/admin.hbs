@@ -4,12 +4,20 @@
       <table class="table">
         <thead>
           <tr>
+            <th>Full Name</th>
             <th>Username</th>
             <th>E-mail</th>
             <th>Admin</th>
-            <th>Banned</th>
           </tr>
         </thead>
+        {{#each users}}
+        <tbody>
+          <td>{{this.name}}</td>
+          <td>{{this.user_name}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.admin}}</td>
+        </tbody>
+        {{/each}}
       </table>
     </div>
   </div>

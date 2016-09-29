@@ -69,7 +69,10 @@ router.get('/admin', auth.ensureAuthenticated, function(req, res, next) {
   query.getAllUsersByIdAndGoogleProfileId(req.user)
   .then((userdata)=>{
     if(userdata.admin === true){
-      res.render('admin')
+      query.getAllUsers()
+      .then((allusers)=>{
+        res.render('admin', {users: allusers})
+      })
     } else{
       res.redirect('/chat')
     }
