@@ -5,13 +5,13 @@
     </div>
     <div class="col-lg-5">
       <div class="row">
-        <h4 class="profile-header">(user) Profile</h4>
+        <h4 class="profile-header">{{user.user_name}} Profile</h4>
         <div class="col-lg-12">
           <img src="{{photo}}" alt="" />
-          <h5>Username: </h5><span>{{name}}</span>
-          <h5>Instrument Of Choice: </h5><span>{{musical_instrument}}</span>
-          <h5>Influenced By: </h5><span>{{influence}}</span>
-          <h5>Biography: </h5><span>{{bio}}</span>
+          <h5>Username: {{user.user_name}} </h5>
+          <h5>Instrument Of Choice:{{user.musical_instrument}}</h5>
+          <h5>Influenced By: {{user.influence}} </h5>
+          <h5>Biography: {{user.bio}} </h5>
         </div>
         <h4 class="chat-header">Chat</h4>
         <div class="col-lg-12">

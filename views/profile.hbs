@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col-lg-offset-4 col-lg-4 well">
       <img src="{{photo}}" alt="" />
-      {{#each user}}
-      <h5>Username: </h5><span>{{this.name}}</span>
-      <h5>Instrument Of Choice: {{this.email}}
-        {{this.id}}
+
+      <h5>Username: </h5><span>{{user.user_name}}</span>
+      <h5>Instrument Of Choice: {{user.email}}
+        {{user.id}}
      </h5><span>{{musical_instrument}}</span>
       <h5>Influenced By: </h5><span>{{influence}}</span>
       <h5>Biography: </h5><span>{{bio}}</span>
-      {{/each}}
+
     </div>
   </div>
 </div>

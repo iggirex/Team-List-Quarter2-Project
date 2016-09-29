@@ -20,5 +20,13 @@ module.exports = {
       bio: bio,
       admin: false
     })
+  },
+  editProfileById: function (user, user_name, genre, instrument, influence, bio, admin){
+    return Users().where('id', user.id).update({
+      genre: genre,
+      musical_instrument: instrument,
+      influence: influence,
+      bio: bio,
+    })
   }
 }

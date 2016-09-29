@@ -14,21 +14,27 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/chat', function(req, res, next) {
-  res.render('chat')
+router.get('/chat', auth.ensureAuthenticated,  function(req, res, next) {
+  res.render('chat', {user: req.user})
 })
 
-router.get('/profile', auth.ensureAuthenticated,  function(req, res, next) {
-  // query.getAllUsers()
-  // .then(function(users) {
-  //   res.render('profile', {users: users})
-  // })
-  console.log(req.user)
-  res.render('profile', {user: req.user})
-})
+// router.get('/profile', auth.ensureAuthenticated,  function(req, res, next) {
+//   console.log(req.user)
+//   res.render('profile', {user: req.user})
+// })
 
 router.get('/register', auth.ensureAuthenticated, function(req, res, next) {
-  res.render('register')
+  console.log("this is our req.user", req.user)
+  console.log('this is our req.user.id', req.user.id)
+  query.getAllUsersByIdAndGoogleProfileId(req.user)
+  .then((userId)=>{
+    if(!userId.user_name){
+      res.render('register')
+    } else {
+      res.redirect('/chat')
+    }
+  })
+  // res.render('register')
 });
 
 router.post('/register',   function(req, res, next) {
@@ -38,13 +44,18 @@ router.post('/register',   function(req, res, next) {
   })
 })
 
-router.get('/edit', function(req, res, next) {
-  res.render('editProfile')
+router.get('/edit', auth.ensureAuthenticated, function(req, res, next) {
+  console.log(req.user)
+  res.render('editProfile', {user:req.user})
 })
 
-router.get('/profile', auth.ensureAuthenticated, function(req, res) {
-    res.json(req.body);
-});
+router.post('/edit', function(req, res, next) {
+  query.editProfileById(req.user, req.body.user_name, req.body.genre, req.body.instrument, req.body.influence, req.body.bio)
+  .then(()=>{
+    res.redirect('/chat')
+  })
+})
+
 
 router.get('/login', function(req, res) {
     res.render('login', {
