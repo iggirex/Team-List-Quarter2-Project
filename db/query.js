@@ -12,7 +12,7 @@ module.exports = {
     return Users().where('id', profile.id).first()
   },
   insertAdditionalInfo: function(user, user_name, genre, instrument, influence, bio, admin) {
-    return Users().where('id',user.id).update({
+    return Users().where('id',user.id).first().update({
       user_name: user_name,
       genre: genre,
       musical_instrument: instrument,

@@ -45,7 +45,7 @@ router.post('/register',   function(req, res, next) {
 })
 
 router.get('/edit', auth.ensureAuthenticated, function(req, res, next) {
-  console.log(req.user)
+  //console.log(req.user)
   res.render('editProfile', {user:req.user})
 })
 
