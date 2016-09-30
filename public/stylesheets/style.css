@@ -19,9 +19,10 @@ body {
 }
 
 #chatDiv {
-  background-color: grey;
+  background-color: white;
   height: 112px;
   width: 600px;
+  overflow: visible;
 }
 
 #send-button {
@@ -45,10 +46,6 @@ body {
 #chat-control-button {
   padding: 10px 220px;
   /*margin-top: 8px;*/
-}
-
-#issues-button {
-  margin-right: 10px;
 }
 
 .btn-primary a {
