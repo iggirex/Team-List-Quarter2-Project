@@ -8,13 +8,14 @@ $(function(){
       // $("#chatDiv").append("<p>"+$("#m").val()+"</p>")
       socket.emit("send message", $("#m").val());
       $("#m").val("");
-        })
+    })
 
     $("#startVideo").click(function(e){
       console.log("button just got clicked")
       e.preventDefault();
       socket.emit("start button");
-            })
+    })
+
 
     socket.on("new message", function(msg){
         console.log("THIS IS MSG@@@@: ", msg.message, "THis is type of msg", typeof msg)
@@ -45,6 +46,13 @@ socket.on("startFeed", function(msg){
     autoRequestMedia: true
   });
     webrtc.joinRoom('jamazon');
+
+    $("#stopVideo").click(function(e){
+        console.log("button just got clicked")
+        e.preventDefault();
+        webrtc.pauseVideo();
+        // socket.emit("stop button");
+    })
 })
 
     // webrtc.on('startFeed', function () {
