@@ -44,7 +44,7 @@ socket.on("startFeed", function(msg){
     // immediately ask for camera access
     autoRequestMedia: true
   });
-    webrtc.joinRoom('your awesome room name');
+    webrtc.joinRoom('jamazon');
 })
 
     // webrtc.on('startFeed', function () {
