@@ -1,9 +1,6 @@
 body {
   padding-top: 70px;
   padding-bottom: 70px;
-  background-image: url('https://hd.unsplash.com/photo-1468164016595-6108e4c60c8b');
-  background-size: cover;
-  min-height: 100%;
 }
 
 #mainbox {
@@ -54,6 +51,7 @@ body {
 }
 #issues-button {
   margin-right: 2vw;
+  background-color: #1B1726;
 }
 
 .btn-primary a {
@@ -70,4 +68,37 @@ body {
 
 .brand-logo {
   font-family: "Abril Fatface", cursive;
+  color: #1B1726;
+}
+
+.welcome-to {
+  font-family: "Abril Fatface", cursive;
+  color: white;
+}
+
+.main-center {
+  margin-top: 8vw;
+}
+
+.main-paragraph {
+  color: white;
+  font-size: 1.2vw;
+}
+
+.top-nav {
+  margin-top: 15px;
+  margin-right: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.background {
+  background-image: url('https://hd.unsplash.com/photo-1468164016595-6108e4c60c8b');
+  background-size: cover;
+  min-height: 100%;
+}
+
+.github-fork {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
