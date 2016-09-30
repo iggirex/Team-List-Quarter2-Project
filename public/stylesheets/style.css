@@ -102,3 +102,7 @@ body {
   margin-bottom: 0px;
   padding-bottom: 0px;
 }
+
+.profileDisplay p{
+  margin-bottom: 0;
+}
