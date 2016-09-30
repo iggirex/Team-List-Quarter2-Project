@@ -20,9 +20,10 @@ body {
 
 #chatDiv {
   background-color: white;
-  height: 112px;
-  width: 600px;
-  overflow: visible;
+  height: 200px;
+  width: 100%;
+  overflow: scroll;
+  margin-bottom: 10px;
 }
 
 #send-button {
@@ -47,10 +48,18 @@ body {
   padding: 10px 220px;
   /*margin-top: 8px;*/
 }
+#issue-button {
+  margin-right: 2vw;
+}
 
 .btn-primary a {
   color: white;
 }
+
 .btn-primary a:hover {
   color: white;
+}
+
+.marginBottom {
+  margin-bottom: 2vw;
 }
