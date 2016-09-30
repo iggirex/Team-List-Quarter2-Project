@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-offset-3 col-lg-6 well">
       <form action="/edit" method="POST">
-        <h2>Update your profile: {{user.user_name}}</h2>
+        <h4>Update your profile: {{user.user_name}}</h4>
         <div class="form-group">
           <label for="genre">Genre</label>
           <input type="text" name="genre" class="form-control" id="genre" value="{{user.genre}}">
@@ -18,13 +18,14 @@
         </div>
         <div class="form-group">
           <label for="bio">Biography</label>
-          <textarea rows="5" cols="40" name="bio" class="form-control" id="bio">{{user.bio}}</textarea>
+          <textarea rows="3" cols="40" name="bio" class="form-control" id="bio">{{user.bio}}</textarea>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default"
+        id="submit-edit">Submit</button>
       </form>
       <form action="/delete" method="POST">
         <input type="hidden" name="id" value="{{user.id}}" />
-        <input type="submit" class="btn btn-default" value="Delete Profile" />
+        <input type="submit" class="btn btn-default display-inline" value="Delete Profile" id="submit-delete" />
       </form>
     </div>
   </div>

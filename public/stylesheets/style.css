@@ -51,6 +51,7 @@ body {
 }
 #issues-button {
   margin-right: 2vw;
+  margin-top: 1vw;
   background-color: #1B1726;
 }
 
@@ -105,4 +106,14 @@ body {
 
 .profileDisplay p{
   margin-bottom: 0;
+}
+
+#submit-edit {
+  margin-left: 465px;
+  margin-top: 5px;
+}
+
+#submit-delete {
+  margin-left: 413px;
+  margin-top: 20px;
 }
