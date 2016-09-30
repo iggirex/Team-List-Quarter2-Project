@@ -11,7 +11,7 @@ var client = new twilio.RestClient(process.env.accountSid, process.env.authToken
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Jamazon' });
 });
 
 //Get Video/Chat Page
@@ -45,7 +45,7 @@ router.post('/register',   function(req, res, next) {
 router.get('/edit', auth.ensureAuthenticated, function(req, res, next) {
   query.getAllUsersByIdAndGoogleProfileId(req.user)
   .then((userdata) => {
-    res.render('editProfile', {user: userdata})
+    res.render('editprofile', {user: userdata})
   })
 })
 
