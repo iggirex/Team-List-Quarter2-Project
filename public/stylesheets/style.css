@@ -106,3 +106,13 @@ body {
 .profileDisplay p{
   margin-bottom: 0;
 }
+
+#submit-edit {
+  margin-left: 465px;
+  margin-top: 5px;
+}
+
+#submit-delete {
+  margin-left: 413px;
+  margin-top: 20px;
+}
