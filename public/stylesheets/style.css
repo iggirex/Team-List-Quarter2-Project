@@ -121,3 +121,13 @@ body {
 #chat-div p{
   margin-bottom: 0;
 }
+
+#jamazonLogo {
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+}
+
+.jamazonLogo {
+  margin-top: 1.5vw;
+  margin-bottom: 1vw;
+}
