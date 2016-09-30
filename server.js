@@ -22,6 +22,10 @@ io.on('connection', (socket) => {
     console.log("io sockets has been emitted!!!")
   })
 
+  socket.on("creating initial", function(data){
+    console.log("Creating initial media has been called and is in the backEND3 33333!!!")
+  })
+
 });
 
 module.exports = io;
