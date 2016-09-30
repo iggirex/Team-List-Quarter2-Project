@@ -45,7 +45,7 @@ router.post('/register',   function(req, res, next) {
 router.get('/edit', auth.ensureAuthenticated, function(req, res, next) {
   query.getAllUsersByIdAndGoogleProfileId(req.user)
   .then((userdata) => {
-    res.render('editProfile', {user: userdata})
+    res.render('editprofile', {user: userdata})
   })
 })
 
