@@ -8,16 +8,7 @@ $(function(){
       // $("#chatDiv").append("<p>"+$("#m").val()+"</p>")
       socket.emit("send message", $("#m").val());
       $("#m").val("");
-    })
-
-
-    $("#stopVideo").click(function(e){
-        console.log("button just got clicked")
-        e.preventDefault();
-        webrtc.pauseVideo();
-        // socket.emit("stop button");
-    })
-
+        })
 
     socket.on("new message", function(msg){
         console.log("THIS IS MSG@@@@: ", msg.message, "THis is type of msg", typeof msg)
@@ -25,39 +16,22 @@ $(function(){
     })
 
     var webrtc = new SimpleWebRTC({
-      // the id/element dom element that will hold "our" video
-      localVideoEl: 'localVideo',
-      // the id/element dom element that will hold remote videos
-      remoteVideosEl: 'remotesVideos',
-      // immediately ask for camera access
-      autoRequestMedia: true
-      // socket.emit("creating initial")
+        // the id/element dom element that will hold "our" video
+        localVideoEl: 'localVideo',
+        // the id/element dom element that will hold remote videos
+        remoteVideosEl: 'remoteVideos',
+        // immediately ask for camera access
+        autoRequestMedia: true
     });
 
+    webrtc.on('connection', function () {
+        // you can name it anything
+        webrtc.joinRoom('your awesome room name');
+    });
+
+    // we have to wait until it's ready
     webrtc.on('readyToCall', function () {
-  // you can name it anything
-  webrtc.joinRoom('your awesome room name');
-});
-
-    $("#startVideo").click(function(e){
-      console.log("button just got clicked")
-      e.preventDefault();
-      // socket.emit("start button");
-      webrtc.resumeVideo();
-    })
-
-// socket.on("startFeed", function(msg){
-//     console.log("Inside socke.on startFeed")
-//     var webrtc = new SimpleWebRTC({
-//     // the id/element dom element that will hold "our" video
-//     localVideoEl: 'localVideo',
-//     // the id/element dom element that will hold remote videos
-//     remoteVideosEl: 'remoteVideos',
-//     // immediately ask for camera access
-//     autoRequestMedia: true
-//   });
-//     webrtc.joinRoom('jamazon');
-
-//
-// })
+        // you can name it anything
+        webrtc.joinRoom('your awesome room name');
+    });
 })
