@@ -11,7 +11,7 @@ var client = new twilio.RestClient(process.env.accountSid, process.env.authToken
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Jamazon' });
 });
 
 //Get Video/Chat Page
