@@ -1,9 +1,9 @@
 
 <div class="container">
-  <h2>Hey {{user.user_name}}</h2>
   <div class="row">
-    <div class="col-lg-offset-4 col-lg-4 well">
+    <div class="col-lg-offset-3 col-lg-6 well">
       <form action="/edit" method="POST">
+        <h2>Update your profile: {{user.user_name}}</h2>
         <div class="form-group">
           <label for="genre">Genre</label>
           <input type="text" name="genre" class="form-control" id="genre" value="{{user.genre}}">
