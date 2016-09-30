@@ -2,48 +2,45 @@
   <div class="row" id="chat-interface-control">
     <div class="col-lg-7" id="video-container">
 
+      <div id="remoteVideos"></div>
       <video id="localVideo"></video>
-<div id="remoteVideos"></div>
-<input type="submit" id="startVideo" value="Start Video"></button>
 
     </div>
     <div class="col-lg-5">
-      <div class="row">
-        <h4 class="profile-header">{{user.user_name}} Profile</h4>
-        <div class="col-lg-12">
-          <img src="{{photo}}" alt="" />
-          <h5>Username: {{user.user_name}} </h5>
-          <h5>Instrument Of Choice:{{user.musical_instrument}}</h5>
-          <h5>Influenced By: {{user.influence}} </h5>
-          <h5>Biography: {{user.bio}} </h5>
-        </div>
-        <h4 class="chat-header">Chat</h4>
-        <div class="col-lg-12">
+        <div class="row">
 
-          <div id="messageArea">
-  <ul class="list-group" id="users"></ul>
-          <div id="chatDiv">Hello</div>
-            <form autocomplete="off" id="messageForm">
-              <input id="m" autocomplete="off"/>
-              <input type="submit" value="chat"></input>
-            </form>
-        </div>
-
-          <div class="row">
-            <div class="col-lg-8" id="chat-box-control">
-              <div class="form-group">
-                <textarea rows="2" id="comment" cols="54" class="chat-textbox form-inline"></textarea>
-              </div>
-            </div>
-            <div class="col-lg-2" id="send-button-control">
-              <input class="btn btn-default form-inline" type="button" value="Input" id="send-button">
-            </div>
+          <h4 class="profile-header">Profile: {{user.user_name}}</h4>
+          <div class="col-lg-12 marginBottom">
+            <img src="{{user.photo}}" alt="" />
+            <h5>Genre: {{user.genre}}</h5>
+            <h5>Instrument: {{user.musical_instrument}}</h5>
+            <h5>Influenced By: {{user.influence}} </h5>
+            <h5>Biography: {{user.bio}} </h5>
           </div>
-        </div>
-        <div class="col-lg-12">
-          <button type="button" name="button" class="btn btn-primary" id="chat-control-button"> End Chat </button>
+
+          <h4 class="chat-header">Chat</h4>
+          <div class="col-lg-12">
+            <div id="chatDiv">Hello!</div>
+              <form autocomplete="off" id="messageForm">
+                <div class="row">
+                  <div class="col-lg-8" id="chat-box-control">
+                    <textarea class="chat-textbox form-inline" rows="2" cols="50" id="m" autocomplete="off"></textarea>
+                  </div>
+                  <div class="col-lg-4" id="send-button-control">
+                    <input class="btn btn-default form-inline" id="send-button" type="submit" value="chat"></input>
+                  </div>
+                </div>
+              </form>
+
+          </div>
+
+          <div class="col-lg-12">
+            <!-- <button type="button" name="button" class="btn btn-primary" id="chat-control-button"> End Video </button> -->
+          </div>
+
         </div>
       </div>
-    </div>
+
+
   </div>
 </div>
