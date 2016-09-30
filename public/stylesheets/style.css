@@ -1,6 +1,9 @@
 body {
   padding-top: 70px;
   padding-bottom: 70px;
+  background-image: url('https://hd.unsplash.com/photo-1468164016595-6108e4c60c8b');
+  background-size: cover;
+  min-height: 100%;
 }
 
 #mainbox {
@@ -20,10 +23,11 @@ body {
 
 #chatDiv {
   background-color: white;
-  height: 200px;
-  width: 100%;
+  height: 150px;
+  width: 34vw;
   overflow: scroll;
   margin-bottom: 10px;
+  border: 1px solid lightblue
 }
 
 #send-button {
@@ -44,11 +48,11 @@ body {
   margin-left: 10px;
 }
 
-#chat-control-button {
-  padding: 10px 220px;
-  /*margin-top: 8px;*/
+#send-button {
+  padding: 16px;
+  margin-left: 25px;
 }
-#issue-button {
+#issues-button {
   margin-right: 2vw;
 }
 
@@ -62,4 +66,8 @@ body {
 
 .marginBottom {
   margin-bottom: 2vw;
+}
+
+.brand-logo {
+  font-family: "Abril Fatface", cursive;
 }
