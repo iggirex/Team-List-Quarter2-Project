@@ -121,3 +121,7 @@ body {
 #chat-div p{
   margin-bottom: 0;
 }
+
+.feedback-div-control {
+  margin-top: 11vw;
+}
