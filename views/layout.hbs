@@ -2,22 +2,22 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="https://simplewebrtc.com/latest-v2.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" integrity="sha384-awusxf8AUojygHf2+joICySzB780jVvQaVCAt1clU3QsyAitLGul28Qxb2r1e5g+" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Pavanam" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />    <script src="https://simplewebrtc.com/latest-v2.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="../public/javascripts/client.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/91db217846.js"></script>
     <script src="/javascripts/client.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <p class="navbar-text">Signed in as <a href="#" class="navbar-link"></a></p>
-        </div>
+        <a class="navbar-brand brand-logo" href="/">JAMAZON<span class="glyphicon glyphicon-music" aria-hidden="true"></span></a>
+        <button type="submit" class="btn btn-default navbar-right top-nav">Log Out</button>
+        <button type="submit" class="btn btn-default navbar-right top-nav">Admin</button>
       </div>
     </nav>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -43,7 +43,7 @@
              </div>
              <div class="modal-footer">
                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               <input type="submit" class="btn btn-primary" value='send report'/>
+               <input type="submit" class="btn btn-primary" value='Send Report'/>
              </div>
            </form>
           </div>
@@ -55,7 +55,7 @@
       <button type="button" class="btn btn-danger btn-lg navbar-right" id="issues-button" data-toggle="modal" data-target="#myModal">
         Issue/Bug/Report
       </button>
+      <h5><a href="https://github.com/Lanerds/Team-List-Quarter2-Project" class="navbar-text github-fork"><i class="fa fa-github" aria-hidden="true"></i> Fork Us on Github!</a></h5>
     </nav>
-
   </body>
 </html>

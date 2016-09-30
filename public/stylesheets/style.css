@@ -20,10 +20,11 @@ body {
 
 #chatDiv {
   background-color: white;
-  height: 200px;
-  width: 100%;
+  height: 150px;
+  width: 34vw;
   overflow: scroll;
   margin-bottom: 10px;
+  border: 1px solid lightblue
 }
 
 #send-button {
@@ -44,12 +45,13 @@ body {
   margin-left: 10px;
 }
 
-#chat-control-button {
-  padding: 10px 220px;
-  /*margin-top: 8px;*/
+#send-button {
+  padding: 16px;
+  margin-left: 25px;
 }
-#issue-button {
+#issues-button {
   margin-right: 2vw;
+  background-color: #1B1726;
 }
 
 .btn-primary a {
@@ -62,4 +64,41 @@ body {
 
 .marginBottom {
   margin-bottom: 2vw;
+}
+
+.brand-logo {
+  font-family: "Abril Fatface", cursive;
+  color: #1B1726;
+}
+
+.welcome-to {
+  font-family: "Abril Fatface", cursive;
+  color: white;
+}
+
+.main-center {
+  margin-top: 8vw;
+}
+
+.main-paragraph {
+  color: white;
+  font-size: 1.2vw;
+}
+
+.top-nav {
+  margin-top: 15px;
+  margin-right: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.background {
+  background-image: url('https://hd.unsplash.com/photo-1468164016595-6108e4c60c8b');
+  background-size: cover;
+  min-height: 100%;
+}
+
+.github-fork {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
